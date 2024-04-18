@@ -1,0 +1,19 @@
+{
+  "name": "X Bookmark Scroll Blocker",
+  "version": "1.0.0",
+  "description": "Xでブックマークしたツイートをクリックした際、毎回ブックマークの最上部に戻ってしまうのを防止する拡張機能です。",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://twitter.com/*"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ]
+}
