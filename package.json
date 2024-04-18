@@ -7,5 +7,9 @@
     "build": "echo aaa"
   },
   "author": "woorld",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@types/chrome": "^0.0.266",
+    "typescript": "^5.4.3"
+  }
 }
