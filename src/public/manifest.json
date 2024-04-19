@@ -1,7 +1,7 @@
 {
-  "name": "X Bookmark Scroll Blocker",
+  "name": "X Bookmark Tweaks",
   "version": "1.0.0",
-  "description": "Xでブックマークしたツイートをクリックした際、毎回ブックマークの最上部に戻ってしまうのを防止する拡張機能です。",
+  "description": "Xのブックマークを調整・拡張する機能群です。",
   "manifest_version": 3,
   "action": {
     "default_popup": "popup.html"

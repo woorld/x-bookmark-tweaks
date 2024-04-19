@@ -11,7 +11,7 @@ if (!fs.existsSync(outputPath)) {
 }
 
 const manifest = fs.readFileSync(path.join(sourcePath, 'manifest.json'));
-const zipName = `x-bookmark-scroll-blocker_v${JSON.parse(manifest).version}.zip`;
+const zipName = `x-bookmark-tweaks_v${JSON.parse(manifest).version}.zip`;
 
 // すでに同名のzipがある場合は削除
 const zipPath = path.join(outputPath, zipName);
