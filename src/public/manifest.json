@@ -15,5 +15,8 @@
         "content.js"
       ]
     }
-  ]
+  ],
+  "icons": {
+    "512": "img/icon/icon512.png"
+  }
 }
