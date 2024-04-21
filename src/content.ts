@@ -1,15 +1,15 @@
-import { bookmarkPageUrl　} from './constants';
+import { bookmarkPageUrl } from './constants';
 
 let currentScrollY = 0;
 let currentUrl = location.href;
 
 const isBookmarkPage = (url: string): boolean => url.startsWith(bookmarkPageUrl);
 
-function onScroll(): void {
+const onScroll = (): void => {
   currentScrollY = window.scrollY;
 };
 
-// documentを監視
+// documentを監視してURLの変更を検知するオブザーバ
 const observer = new MutationObserver(() => {
   if (location.href === currentUrl) {
     return;
@@ -17,31 +17,29 @@ const observer = new MutationObserver(() => {
 
   const isEnterBookmarkPage = !isBookmarkPage(currentUrl) && isBookmarkPage(location.href);
   if (isEnterBookmarkPage) {
-    console.log('enabled');
     document.addEventListener('scroll', onScroll);
   }
 
   const isLeaveBookmarkPage = isBookmarkPage(currentUrl) && !isBookmarkPage(location.href);
   if (isLeaveBookmarkPage) {
-    console.log('disabled');
     document.removeEventListener('scroll', onScroll);
   }
 
   // 主に 右ペイン閉じる→他ポスト押下で右ペイン開く でスクロールが巻き戻る挙動の矯正用
   const isOpenRightPane = currentUrl === bookmarkPageUrl && location.href.startsWith(bookmarkPageUrl + '?post_id=');
   if (isOpenRightPane) {
-    console.log('right pane opened');
     // 復元するスクロール量を現在のスクロール量に固定（currentScrollYは通常のスクロールイベントで上書きされるため）
     const correctTargetScrollY = currentScrollY;
     const correctScrollPosition = () => window.scrollTo(0, correctTargetScrollY);
 
+    // 右ペインを開いてから0.1秒間はスクロールをさせない
     document.addEventListener('scroll', correctScrollPosition);
     setTimeout(() => document.removeEventListener('scroll', correctScrollPosition), 100);
   }
 
   currentUrl = location.href;
 
-  // URLが以前から変更されていた場合、スクロール位置を復元
+  // スクロール位置を復元
   window.scrollTo(0, currentScrollY);
 });
 
