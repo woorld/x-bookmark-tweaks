@@ -1,8 +1,8 @@
+import { bookmarkPageUrl, invalidScrollAmount } from './constants';
+
 let currentScrollY = 0;
 let currentUrl = location.href;
 
-const invalidScrollAmount = 200;
-const bookmarkPageUrl = 'https://twitter.com/i/bookmarks';
 const isBookmarkPage = (url: string): boolean => url.startsWith(bookmarkPageUrl);
 
 function onScroll(): void {
