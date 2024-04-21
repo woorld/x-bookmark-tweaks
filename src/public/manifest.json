@@ -1,7 +1,7 @@
 {
   "name": "X Bookmark Tweaks",
   "version": "1.0.0",
-  "description": "Xのブックマークを調整・拡張する機能群です。",
+  "description": "X（旧Twitter）のブックマーク機能を調整・拡張する機能群です。",
   "manifest_version": 3,
   "action": {
     "default_popup": "popup.html"
