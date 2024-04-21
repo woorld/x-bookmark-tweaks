@@ -1,11 +1,24 @@
 {
-  "name": "x-bookmark-scroll-blocker",
+  "name": "x-bookmark-tweaks",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "echo aaa"
+    "build": "webpack --config webpack/webpack.prod.js",
+    "build:dev": "webpack --config webpack/webpack.dev.js",
+    "watch": "webpack --config webpack/webpack.dev.js --watch",
+    "pack": "node scripts/pack.js"
   },
   "author": "woorld",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@types/chrome": "^0.0.266",
+    "archiver": "^7.0.1",
+    "copy-webpack-plugin": "^12.0.2",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.4.3",
+    "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.4"
+  }
 }
