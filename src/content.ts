@@ -11,7 +11,9 @@ const onScroll = (): void => {
 
 // documentを監視してURLの変更を検知するオブザーバ
 const observer = new MutationObserver(() => {
-  if (location.href === currentUrl) {
+  // 遷移元・遷移先がどちらもブックマークページではない
+  const isNotBookmarkPage = !isBookmarkPage(currentUrl) && !isBookmarkPage(location.href);
+  if (location.href === currentUrl || isNotBookmarkPage) {
     return;
   }
 
