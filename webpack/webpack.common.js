@@ -1,5 +1,6 @@
 const CopyPlugin = require('copy-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: {
@@ -16,6 +17,14 @@ module.exports = {
         use: [
           'style-loader',
           'css-loader',
+        ],
+      },
+      {
+        test: /\.scss$/i,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'sass-loader',
         ],
       },
     ],
@@ -39,6 +48,9 @@ module.exports = {
         },
       ],
     }),
+    new MiniCssExtractPlugin({
+      filename: 'content.css'
+    })
   ],
   // ソース内のライセンスを別ファイルに展開しない
   optimization: {
