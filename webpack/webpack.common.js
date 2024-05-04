@@ -49,7 +49,7 @@ module.exports = {
       ],
     }),
     new MiniCssExtractPlugin({
-      filename: 'content.css'
+      filename: '[name].css'
     })
   ],
   // ソース内のライセンスを別ファイルに展開しない

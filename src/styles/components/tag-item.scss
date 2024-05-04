@@ -1,0 +1,15 @@
+.bmtweaks-tag-item {
+  font-size: 14px;
+  padding: 4px 12px;
+  border: solid 1px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+  &::before {
+    font-family: "IconFont";
+    content: "\e900";
+  }
+}
