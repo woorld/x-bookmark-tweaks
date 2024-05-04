@@ -19,6 +19,16 @@
       ]
     }
   ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "fonts/*"
+      ],
+      "matches": [
+        "https://twitter.com/*"
+      ]
+    }
+  ],
   "icons": {
     "512": "img/icon/icon512.png"
   }

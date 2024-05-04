@@ -1,7 +1,14 @@
-import { bookmarkPageUrl } from './constants';
+import { bookmarkPageUrl, tagAddElSelector } from './constants';
+import { TagList } from './components/tag-list';
+import van from 'vanjs-core';
+import './styles/content.scss';
 
+// スクロール復元用
 let currentScrollY = 0;
 let currentUrl = location.href;
+
+// タグ領域追加用
+let latestBookmarkPostsLength = 0;
 
 const isBookmarkPage = (url: string): boolean => url.startsWith(bookmarkPageUrl);
 
@@ -9,11 +16,35 @@ const onScroll = (): void => {
   currentScrollY = window.scrollY;
 };
 
+const addTagListToPosts = (): void => {
+  const bookmarkPosts = document.querySelectorAll(tagAddElSelector);
+
+  if (bookmarkPosts.length === 0 || bookmarkPosts.length === latestBookmarkPostsLength) {
+    return;
+  }
+
+  latestBookmarkPostsLength = bookmarkPosts.length;
+
+  for (const el of bookmarkPosts) {
+    if (el.querySelector('.bmtweaks-tag-list') != null) {
+      // タグ領域追加済みの場合は何もしない
+      continue;
+    }
+    van.add(el, TagList);
+  }
+};
+
 // documentを監視してURLの変更を検知するオブザーバ
 const observer = new MutationObserver(() => {
   // 遷移元・遷移先がどちらもブックマークページではない
   const isNotBookmarkPage = !isBookmarkPage(currentUrl) && !isBookmarkPage(location.href);
-  if (location.href === currentUrl || isNotBookmarkPage) {
+  if (isNotBookmarkPage) {
+    return;
+  }
+
+  // ブックマークページから移動していない
+  if (location.href === currentUrl) {
+    addTagListToPosts();
     return;
   }
 
