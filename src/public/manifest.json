@@ -3,6 +3,9 @@
   "version": "1.0.1",
   "description": "X（旧Twitter）のブックマーク機能を調整・拡張する機能群です。",
   "manifest_version": 3,
+  "permissions": [
+    "storage"
+  ],
   "action": {
     "default_popup": "popup.html"
   },
