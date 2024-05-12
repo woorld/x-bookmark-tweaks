@@ -1,4 +1,8 @@
+@use '../content.scss' as *;
+
 .bmtweaks-tag-list {
+  @include common;
+
   list-style-type: none;
   display: flex;
   justify-content: flex-start;

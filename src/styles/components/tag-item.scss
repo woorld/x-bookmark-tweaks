@@ -1,4 +1,8 @@
+@use '../content.scss' as *;
+
 .bmtweaks-tag-item {
+  @include common;
+
   font-size: 14px;
   padding: 4px 12px;
   border: solid 1px;
