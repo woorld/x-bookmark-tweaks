@@ -1,1 +1,1 @@
-export const bookmarkPageUrl = 'https://twitter.com/i/bookmarks';
+export const bookmarkPageUrl = 'https://x.com/i/bookmarks';
