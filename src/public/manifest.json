@@ -1,6 +1,6 @@
 {
   "name": "X Bookmark Tweaks",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "X（旧Twitter）のブックマーク機能を調整・拡張する機能群です。",
   "manifest_version": 3,
   "action": {
